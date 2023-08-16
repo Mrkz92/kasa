@@ -1,0 +1,51 @@
+.kasa-header {
+    height: 68px;
+    position: relative;
+    width: 1240px;
+    &__logo {
+      height: 68px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 210px;
+    }
+    &__nav {
+      height: 34px;
+      left: 931px;
+      position: absolute;
+      top: 17px;
+      width: 309px;
+      &--welcome {
+        color: #ff6060;
+        font-family: "Montserrat-Medium", Helvetica;
+        font-size: 24px;
+        font-weight: 500;
+        height: 34px;
+        left: 0;
+        letter-spacing: 0;
+        line-height: 34.2px;
+        position: absolute;
+        text-align: right;
+        text-decoration: underline;
+        top: 0;
+        width: 136px;
+      }
+      &--about {
+        color: #ff6060;
+        font-family: "Montserrat-Medium", Helvetica;
+        font-size: 24px;
+        font-weight: 500;
+        height: 34px;
+        left: 193px;
+        letter-spacing: 0;
+        line-height: 34.2px;
+        position: absolute;
+        text-align: right;
+        top: 0;
+        width: 116px;
+      }
+    }
+  }
+  
+  
+  

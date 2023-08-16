@@ -1,0 +1,40 @@
+.d-home {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    .div-2 {
+        background-color: #ffffff;
+        border: 1px none;
+        height: 1024px;
+        overflow: hidden;
+        position: relative;
+        width: 1440px;
+        .header-instance {
+            background-color: transparent !important;
+            left: 100px !important;
+            position: absolute !important;
+            top: 40px !important;
+        }
+        .body {
+            height: 1095px;
+            left: 100px;
+            position: absolute;
+            top: 171px;
+            width: 1240px;
+            .section {
+                height: 223px;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 1242px;
+            }
+            .gallery-instance {
+                left: 0 !important;
+                position: absolute !important;
+                top: 266px !important;
+            }
+        }
+    }
+}
