@@ -1,6 +1,8 @@
-import "../styles/Thumb.scss";
+import "./_Card.scss";
 
-const Thumb = () => {
+
+export default function Card() {
+
   return (
     <div className='thumb'>
       <div className="overlap-group">
@@ -11,6 +13,4 @@ const Thumb = () => {
       </div>
     </div>
   );
-};
-
-export default Thumb
+}

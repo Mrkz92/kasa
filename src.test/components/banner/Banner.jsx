@@ -1,12 +1,10 @@
-import "../styles/Banner.scss";
+import "./_Banner.scss";
 
 const Banner = () => {
   return (
     <div className="banner">
       <div className="banner-frame">
-        <div className="overlap-group">
           <p className="text-wrapper">Chez vous, partout et ailleurs</p>
-        </div>
       </div>
     </div>
   );
