@@ -1,4 +1,4 @@
-import "./_Card.scss";
+import "./Card.scss";
 
 
 export default function Card() {

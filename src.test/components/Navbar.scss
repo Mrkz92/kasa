@@ -1,0 +1,18 @@
+.Navbar {
+  height: 34px;
+  top: 17px;
+  width: 309px;
+  &__ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__li {
+    color: #ff6060;
+    font-size: 24px;
+    font-weight: 500;
+    height: 34px;
+    letter-spacing: 0;
+    line-height: 34.2px;
+    text-align: right;
+  }
+}
