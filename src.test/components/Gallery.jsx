@@ -1,14 +1,18 @@
-
-// import JSONData from "../../datas/holderList.json"
+import { datas } from "../data/accList";
 import Card from "./Card";
 import "./Gallery.scss";
 
 export default function Gallery() {
-  // const holderList = JSON.stringify(JSONData)
-
   return (
-    <ul className='Gallery'>
-      <Card />
+    <ul className="Gallery">
+      {datas.map((data) => (
+        <Card
+          key={`${data.id}`}
+          id={`${data.id}`}
+          title={`${data.title}`}
+          cover={`${data.cover}`}
+        />
+      ))}
     </ul>
   );
 }
