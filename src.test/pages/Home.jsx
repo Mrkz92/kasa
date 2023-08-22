@@ -8,7 +8,6 @@ import DevNavbar from "../components/DevNavbar";
 export default function Home() {
   return (
     <Layout>
-      <DevNavbar />
       <DevDump valeur={datas} />
       <Banner />
       <Gallery datas={datas} />

@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-style: normal;
+}
+
 *,
 ::before,
 ::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  font-family: "Montserrat", Helvetica, sans-serif;
-  font-style: normal;
+  box-sizing: inherit;
 }
 
 a {
@@ -20,7 +24,5 @@ li {
 }
 
 body {
-  max-width: 1240px;
-  padding: 40px 100px 0px 100px;
-  margin: 0 auto;
+  margin: 0;
 }

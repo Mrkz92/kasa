@@ -1,0 +1,15 @@
+.Layout {
+  max-width: 1240px;
+  padding: 40px 100px 0px 100px;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  &::after {
+    content: "";
+    flex-grow: 1;
+  }
+  &__Footer {
+    order: 1;
+  }
+}

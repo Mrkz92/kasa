@@ -5,7 +5,6 @@ import DevNavbar from "../components/DevNavbar";
 export default function NotFound() {
   return (
     <Layout>
-      <DevNavbar />
       <DevDump />
       notFound
     </Layout>
