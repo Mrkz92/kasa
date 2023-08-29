@@ -1,7 +1,7 @@
 .Footer {
   background-color: #000000;
-  margin-left: -100px;
-  margin-right: -100px;
+  width: 100vw;
+  padding: 62px 0;
   &__div {
     display: flex;
     flex-direction: column;
@@ -9,20 +9,22 @@
     align-items: center;
     background-color: #000000;
     border: 1px none;
-    height: 209px;
+    // height: 209px;
   }
   &__logo {
     width: 122px;
-    margin: 66px 0 28.56px 0;
+    // margin: 66px 0 28.56px 0;
   }
   &__txt {
+    margin: 0;
     color: #ffffff;
     font-family: "Montserrat-Medium", Helvetica;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 500;
     height: 46px;
     letter-spacing: 0;
-    line-height: 34.2px;
-    text-align: center;
+    line-height: 17.1px;
+    display: flex;
+    align-items: flex-end;
   }
 }

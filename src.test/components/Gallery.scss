@@ -1,7 +1,8 @@
 .Gallery {
-  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
   border-radius: 25px;
-  width: 100;
-  margin: 43px 0;
-  padding: 56px 50px;
+  width: 100%;
+  gap: 20px;
+  padding: 0;
 }

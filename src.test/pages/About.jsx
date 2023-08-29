@@ -1,11 +1,20 @@
 import Layout from "../components/Layout";
 import DevDump from "../components/DevDump";
 import { Collapse } from "../components/Collapse";
+import Banner from "../components/Banner";
+import AboutBannerBg from "../assets/about-bg.png";
 
-export default function About() {
+export default function About({ children }) {
   return (
     <Layout>
       <DevDump />
+      <Banner
+        className="Banner--about"
+        image={AboutBannerBg}
+        text=""
+        min-height="223px"
+      />
+      {children}
       <Collapse title="Fiabilité">
         Les annonces postées sur Kasa garantissent une fiabilité totale. Les
         photos sont conformes aux logements, et toutes les informations sont

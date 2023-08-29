@@ -2,7 +2,6 @@ import { datas } from "../data/accList";
 import "./Card.scss";
 import { Link } from "react-router-dom";
 
-console.log(datas);
 export default function Card(datas) {
   return (
     <Link to={`/accomodation/${datas.id}`} className="Card">

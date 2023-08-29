@@ -1,15 +1,12 @@
 import "./Banner.scss";
 
-const Banner = () => {
+export default function Banner({ image, text }) {
   return (
     <div className="Banner">
-      <div className="Banner__bg">
-        <div className="Banner__txt">
-          <p className="Banner__p">Chez vous, partout et ailleurs</p>
-        </div>
+      <img className="Banner__bg" src={image} />
+      <div className="Banner__txt">
+        <p className="Banner__p">{text}</p>
       </div>
     </div>
   );
-};
-
-export default Banner;
+}
