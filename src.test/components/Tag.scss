@@ -1,0 +1,16 @@
+.Tag {
+  display: flex;
+  background-color: #ff6060;
+  color: #ffffff;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 5px;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  min-width: 84px;
+  max-width: fit-content;
+  height: 18px;
+  //   line-height: 142.6%;
+}

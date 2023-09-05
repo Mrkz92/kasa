@@ -1,0 +1,23 @@
+.Error {
+  display: flex;
+  flex-direction: column;
+  color: #ff6060;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  &__h1 {
+    font-size: 96px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  &__explain {
+    font-size: 18px;
+  }
+  &__Link {
+    font-size: 14px;
+    text-decoration-line: underline;
+  }
+}

@@ -1,0 +1,419 @@
+diff --git a/src.test/components/Carousel.jsx b/src.test/components/Carousel.jsx
+index c9a9fc3..b395b3a 100644
+--- a/src.test/components/Carousel.jsx
++++ b/src.test/components/Carousel.jsx
+@@ -2,6 +2,7 @@ import arrowBack from "../assets/arrow-back.png";
+ import arrowForward from "../assets/arrow-forward.png";
+ import "./Carousel.scss";
+ import { useState } from "react";
++import Stack from "./Stack";
+ 
+ export default function Carousel({ slides }) {
+   const [current, setCurrent] = useState(0);
+@@ -15,33 +16,39 @@ export default function Carousel({ slides }) {
+   };
+   return (
+     <section className="Carousel">
+-      {length > 1 && (
+-        <img src={arrowBack} onClick={prevSlide} className="Carousel__prev" />
+-      )}
+-      {length > 1 && (
+-        <img
+-          src={arrowForward}
+-          alt="droite"
+-          onClick={nextSlide}
+-          className="Carousel__next"
+-        />
+-      )}
+-      {slides.map((slide, index) => (
+-        <div key={index} className="Carousel__slide">
+-          {index === current && (
+-            <img
+-              className="Carousel__picture"
+-              src={slide}
+-              alt="appartement à louer"
+-            />
+-          )}
+-          {index === current && (
+-            <span className="slider__number">
+-              {current + 1}/{length}
+-            </span>
+-          )}
+-        </div>
+-      ))}
++      <Stack className="Carousel__slides">
++        {slides.map((slide, index) => (
++          <img
++            key={index}
++            className={`Carousel__slide Carousel__picture ${
++              index == current ? "is--active" : ""
++            }`}
++            src={slide}
++            alt="appartement à louer"
++          />
++        ))}
++      </Stack>
++      <div className="Carousel__control">
++        {length > 1 && (
++          <img
++            src={arrowBack}
++            alt="precedent"
++            onClick={prevSlide}
++            className="Carousel__prev"
++          />
++        )}
++        <span className="Carousel__number">
++          {current + 1}/{length}
++        </span>
++        {length > 1 && (
++          <img
++            src={arrowForward}
++            alt="suivant"
++            onClick={nextSlide}
++            className="Carousel__next"
++          />
++        )}
++      </div>
+     </section>
+   );
+ }
+diff --git a/src.test/components/Carousel.scss b/src.test/components/Carousel.scss
+index 65e2989..c30b596 100644
+--- a/src.test/components/Carousel.scss
++++ b/src.test/components/Carousel.scss
+@@ -1,6 +1,28 @@
+ .Carousel {
+   border-radius: 10px;
+-  // max-width: 100%;
++  position: relative;
++  &__slides {
++    overflow: hidden;
++  }
++  &__slide {
++    width: 100%;
++    translate: -100% 0;
++    height: 35vh;
++    object-fit: cover;
++    transition: all 1s ease-in-out;
++    &.is--active {
++      translate: 0% 0;
++    }
++    &.is--active ~ & {
++      translate: 100% 0;
++    }
++  }
++  &__control {
++    position: absolute;
++    top: 0px;
++    width: 100%;
++    height: 100%;
++  }
+   &__picture {
+     max-width: 100vw;
+   }
+diff --git a/src.test/components/Container.jsx b/src.test/components/Container.jsx
+index e69de29..9b6195d 100644
+--- a/src.test/components/Container.jsx
++++ b/src.test/components/Container.jsx
+@@ -0,0 +1,4 @@
++import "./Container.scss";
++export default function Container({ children }) {
++  return <div className="Container">{children}</div>;
++}
+diff --git a/src.test/components/Container.scss b/src.test/components/Container.scss
+index e69de29..51ed38e 100644
+--- a/src.test/components/Container.scss
++++ b/src.test/components/Container.scss
+@@ -0,0 +1,9 @@
++.Container {
++  width: 100%;
++  max-width: 1280px;
++  margin: auto;
++  padding: 0 20px;
++  @media screen and (max-width: 800px) {
++    max-width: 640px;
++  }
++}
+diff --git a/src.test/components/DevDump.scss b/src.test/components/DevDump.scss
+index 9f03a8f..aa3c0fb 100644
+--- a/src.test/components/DevDump.scss
++++ b/src.test/components/DevDump.scss
+@@ -3,5 +3,4 @@
+   background-color: yellow;
+   border: 1px solid red;
+   padding: 10px;
+-  max-width: 90vw;
+ }
+diff --git a/src.test/components/DevNavbar.jsx b/src.test/components/DevNavbar.jsx
+index f603cac..21d9ac0 100644
+--- a/src.test/components/DevNavbar.jsx
++++ b/src.test/components/DevNavbar.jsx
+@@ -7,15 +7,18 @@ DOit contenir les liens vers toutes les pages que l'on veut tester
+ 
+ import { Link } from "react-router-dom";
+ import "./DevNavbar.scss";
++import Container from "./Container";
+ 
+ export default function DevNavbar({ links }) {
+   return (
+-    <nav className="DevNavbar">
+-      {links.map((link) => (
+-        <Link key={link} to={link}>
+-          {link}
+-        </Link>
+-      ))}
+-    </nav>
++    <Container>
++      <nav className="DevNavbar">
++        {links.map((link) => (
++          <Link key={link} to={link}>
++            {link}
++          </Link>
++        ))}
++      </nav>
++    </Container>
+   );
+ }
+diff --git a/src.test/components/Footer.jsx b/src.test/components/Footer.jsx
+index 164543b..74db5e6 100644
+--- a/src.test/components/Footer.jsx
++++ b/src.test/components/Footer.jsx
+@@ -1,13 +1,16 @@
+ import logo from "../assets/logo-bw.svg";
++import Container from "./Container";
+ import "./Footer.scss";
+ 
+ export default function Footer({ className, ...attrs }) {
+   return (
+     <div className={`Footer ${className}`} {...attrs}>
+-      <div className="Footer__div">
+-        <img src={logo} alt="Kasa" className="Footer__logo" />
+-        <p className="Footer__txt">© 2020 Kasa. All rights reserved</p>
+-      </div>
++      <Container>
++        <div className="Footer__div">
++          <img src={logo} alt="Kasa" className="Footer__logo" />
++          <p className="Footer__txt">© 2020 Kasa. All rights reserved</p>
++        </div>
++      </Container>
+     </div>
+   );
+ }
+diff --git a/src.test/components/Footer.scss b/src.test/components/Footer.scss
+index b85c6d9..f527041 100644
+--- a/src.test/components/Footer.scss
++++ b/src.test/components/Footer.scss
+@@ -1,6 +1,5 @@
+ .Footer {
+   background-color: #000000;
+-  width: 100vw;
+   padding: 62px 0;
+   &__div {
+     display: flex;
+diff --git a/src.test/components/Header.jsx b/src.test/components/Header.jsx
+index ff040af..551853b 100644
+--- a/src.test/components/Header.jsx
++++ b/src.test/components/Header.jsx
+@@ -1,13 +1,16 @@
+ import logo from "../assets/logo.svg";
++import Container from "./Container";
+ import "./Header.scss";
+ import Navbar from "./Navbar";
+ 
+ export default function Header({ children }) {
+   return (
+-    <div className="Header">
+-      <img src={logo} alt="Kasa" className="Header__logo" />
+-      <Navbar className="Header__Navbar" />
+-      {children}
+-    </div>
++    <Container>
++      <div className="Header">
++        <img src={logo} alt="Kasa" className="Header__logo" />
++        <Navbar className="Header__Navbar" />
++        {children}
++      </div>
++    </Container>
+   );
+ }
+diff --git a/src.test/components/Layout.scss b/src.test/components/Layout.scss
+index b857e08..8da9661 100644
+--- a/src.test/components/Layout.scss
++++ b/src.test/components/Layout.scss
+@@ -1,8 +1,6 @@
+ .Layout {
+   display: flex;
+   flex-direction: column;
+-  align-items: center;
+-  margin: 0 20px;
+   &::after {
+     content: "";
+     flex-grow: 1;
+diff --git a/src.test/components/Navbar.scss b/src.test/components/Navbar.scss
+index c2d8548..7615703 100644
+--- a/src.test/components/Navbar.scss
++++ b/src.test/components/Navbar.scss
+@@ -1,12 +1,13 @@
+ .Navbar {
+   display: flex;
+   flex-direction: row-reverse;
+-  height: 34px;
+-  width: 309px;
++  order: 1;
+   &__ul {
+     display: inline-flex;
+     justify-content: space-between;
+     gap: 10px;
++    margin: 0;
++    padding: 0;
+   }
+   &__li {
+     font-size: 12px;
+diff --git a/src.test/pages/About.jsx b/src.test/pages/About.jsx
+index 8dec28c..0b18f3b 100644
+--- a/src.test/pages/About.jsx
++++ b/src.test/pages/About.jsx
+@@ -3,41 +3,44 @@ import DevDump from "../components/DevDump";
+ import { Collapse } from "../components/Collapse";
+ import Banner from "../components/Banner";
+ import AboutBannerBg from "../assets/about-bg.png";
++import Container from "../components/Container";
+ 
+ export default function About({ children }) {
+   return (
+     <Layout>
+-      <DevDump />
+-      <Banner
+-        className="Banner--about"
+-        image={AboutBannerBg}
+-        text=""
+-        min-height="223px"
+-      />
+-      {children}
+-      <Collapse title="Fiabilité">
+-        Les annonces postées sur Kasa garantissent une fiabilité totale. Les
+-        photos sont conformes aux logements, et toutes les informations sont
+-        régulièrement vérifiées par nos équipes.
+-      </Collapse>
+-      <Collapse title="Respect">
+-        La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
+-        comportement discriminatoire ou de perturbation du voisinage entraînera
+-        une exclusion de notre plateforme.
+-      </Collapse>
+-      <Collapse title="Service">
+-        Nos équipes se tiennent à votre disposition pour vous fournir une
+-        expérience parfaite. N'hésitez pas à nous contacter si vous avez la
+-        moindre question.
+-      </Collapse>
+-      <Collapse title="Sécurité">
+-        La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour
+-        les voyageurs, chaque logement correspond aux critères de sécurité
+-        établis par nos services. En laissant une note aussi bien à l'hôte qu'au
+-        locataire, cela permet à nos équipes de vérifier que les standards sont
+-        bien respectés. Nous organisons également des ateliers sur la sécurité
+-        domestique pour nos hôtes.
+-      </Collapse>
++      <Container>
++        <DevDump />
++        <Banner
++          className="Banner--about"
++          image={AboutBannerBg}
++          text=""
++          min-height="223px"
++        />
++        {children}
++        <Collapse title="Fiabilité">
++          Les annonces postées sur Kasa garantissent une fiabilité totale. Les
++          photos sont conformes aux logements, et toutes les informations sont
++          régulièrement vérifiées par nos équipes.
++        </Collapse>
++        <Collapse title="Respect">
++          La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
++          comportement discriminatoire ou de perturbation du voisinage
++          entraînera une exclusion de notre plateforme.
++        </Collapse>
++        <Collapse title="Service">
++          Nos équipes se tiennent à votre disposition pour vous fournir une
++          expérience parfaite. N'hésitez pas à nous contacter si vous avez la
++          moindre question.
++        </Collapse>
++        <Collapse title="Sécurité">
++          La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
++          pour les voyageurs, chaque logement correspond aux critères de
++          sécurité établis par nos services. En laissant une note aussi bien à
++          l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les
++          standards sont bien respectés. Nous organisons également des ateliers
++          sur la sécurité domestique pour nos hôtes.
++        </Collapse>
++      </Container>
+     </Layout>
+   );
+ }
+diff --git a/src.test/pages/Accomodation.jsx b/src.test/pages/Accomodation.jsx
+index 7ddba81..a59d0aa 100644
+--- a/src.test/pages/Accomodation.jsx
++++ b/src.test/pages/Accomodation.jsx
+@@ -5,19 +5,24 @@ import Carousel from "../components/Carousel";
+ import { Collapse } from "../components/Collapse";
+ import { datas } from "../data/accList";
+ import { useParams } from "react-router-dom";
++import Container from "../components/Container";
+ 
+ export default function Accomodation() {
+   const { id } = useParams("id");
+   const dataAccomodation = datas.find((data) => data.id === id);
+   return (
+     <Layout>
+-      <DevDump valeur={dataAccomodation} />
+-      <main className="Accomodation">
+-        <Carousel slides={dataAccomodation.pictures} />
+-        <Sheet />
+-        <Collapse title="Description">{dataAccomodation.description}</Collapse>
+-        <Collapse title="Equipements">{dataAccomodation.equipments}</Collapse>
+-      </main>
++      <Container>
++        <DevDump valeur={dataAccomodation} />
++        <main className="Accomodation">
++          <Carousel slides={dataAccomodation.pictures} />
++          <Sheet />
++          <Collapse title="Description">
++            {dataAccomodation.description}
++          </Collapse>
++          <Collapse title="Equipements">{dataAccomodation.equipments}</Collapse>
++        </main>
++      </Container>
+     </Layout>
+   );
+ }
+diff --git a/src.test/pages/Home.jsx b/src.test/pages/Home.jsx
+index 4516a3b..33f128f 100644
+--- a/src.test/pages/Home.jsx
++++ b/src.test/pages/Home.jsx
+@@ -4,17 +4,20 @@ import Layout from "../components/Layout";
+ import { datas } from "../data/accList";
+ import DevDump from "../components/DevDump";
+ import HomeBannerBg from "../assets/home-bg.png";
++import Container from "../components/Container";
+ 
+ export default function Home() {
+   return (
+     <Layout>
+-      <DevDump valeur={datas} />
+-      <Banner
+-        className="Banner--home"
+-        image={HomeBannerBg}
+-        text="Chez vous, partout et ailleurs"
+-      />
+-      <Gallery datas={datas} />
++      <Container>
++        <DevDump valeur={datas} />
++        <Banner
++          className="Banner--home"
++          image={HomeBannerBg}
++          text="Chez vous, partout et ailleurs"
++        />
++        <Gallery datas={datas} />
++      </Container>
+     </Layout>
+   );
+ }

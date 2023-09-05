@@ -16,43 +16,39 @@ export default function Carousel({ slides }) {
   };
   return (
     <section className="Carousel">
-      <Stack>
-        <div className="Carousel__control">
-          {length > 1 && (
-            <img
-              src={arrowBack}
-              alt=""
-              onClick={prevSlide}
-              className="Carousel__prev"
-            />
-          )}
-          <span className="slider__number">
-            {current + 1}/{length}
-          </span>
-          {length > 1 && (
-            <img
-              src={arrowForward}
-              alt="droite"
-              onClick={nextSlide}
-              className="Carousel__next"
-            />
-          )}
-        </div>
-        <Stack>
-          <div className="Carousel__slides">
-            {slides.map((slide, index) => (
-              <img
-                key={index}
-                className={`Carousel__slide Carousel__picture`}
-                $
-                {...(index === current ? "is--active" : "")}
-                src={slide}
-                alt="appartement à louer"
-              />
-            ))}
-          </div>
-        </Stack>
+      <Stack className="Carousel__slides">
+        {slides.map((slide, index) => (
+          <img
+            key={index}
+            className={`Carousel__slide Carousel__picture ${
+              index == current ? "is--active" : ""
+            }`}
+            src={slide}
+            alt="appartement à louer"
+          />
+        ))}
       </Stack>
+      <div className="Carousel__control">
+        {length > 1 && (
+          <img
+            src={arrowBack}
+            alt="precedent"
+            onClick={prevSlide}
+            className="Carousel__arrow Carousel__arrow--prev"
+          />
+        )}
+        <span className="Carousel__number">
+          {current + 1}/{length}
+        </span>
+        {length > 1 && (
+          <img
+            src={arrowForward}
+            alt="suivant"
+            onClick={nextSlide}
+            className="Carousel__arrow Carousel__arrow--next"
+          />
+        )}
+      </div>
     </section>
   );
 }

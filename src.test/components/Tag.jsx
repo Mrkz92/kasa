@@ -1,5 +1,5 @@
 import "./Tag.scss";
 
 export default function Tag({ tag }) {
-  return <button className="Tag">{tag}</button>;
+  return <span className="Tag">{tag}</span>;
 }

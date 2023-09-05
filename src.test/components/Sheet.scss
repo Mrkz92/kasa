@@ -1,0 +1,50 @@
+.Sheet {
+  line-height: 142.6%;
+  color: #ff6060;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+  &__titles {
+    grid-area: 1 / 1 / 3 / 3;
+  }
+  &__h1 {
+    font-size: 18px;
+    grid-area: 1 / 1 / 2 /3;
+  }
+  &__location {
+    font-size: 14px;
+    grid-area: 2 / 1 / 3 / 3;
+  }
+  &__Tags {
+    display: inline-flex;
+    gap: 10px;
+    grid-area: 3 / 1 / 3 / 3;
+  }
+  &__Rate {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  &__host {
+    display: flex;
+    width: 136px;
+    height: 33px;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    margin-left: auto;
+    grid-area: 4 / 2 / 5 / 3;
+    &-name {
+      width: 93px;
+      font-size: 12px;
+      text-align: right;
+      font-style: normal;
+    }
+    &-picture {
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

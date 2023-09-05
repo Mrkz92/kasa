@@ -7,7 +7,7 @@ import { datas } from "../data/accList";
 import { useParams } from "react-router-dom";
 import Container from "../components/Container";
 
-export default function Accomodation() {
+export default function Accomodation({ children }) {
   const { id } = useParams("id");
   const dataAccomodation = datas.find((data) => data.id === id);
   return (
@@ -17,10 +17,16 @@ export default function Accomodation() {
         <main className="Accomodation">
           <Carousel slides={dataAccomodation.pictures} />
           <Sheet />
-          <Collapse title="Description">
+          <Collapse className="Accomodation__description" title="Description">
             {dataAccomodation.description}
           </Collapse>
-          <Collapse title="Equipements">{dataAccomodation.equipments}</Collapse>
+          <Collapse className="Accomodation__equipments" title="Equipements">
+            <ul style={children}>
+              {dataAccomodation.equipments.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
+              ))}
+            </ul>
+          </Collapse>
         </main>
       </Container>
     </Layout>

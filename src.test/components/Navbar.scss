@@ -1,6 +1,8 @@
 .Navbar {
   display: flex;
   flex-direction: row-reverse;
+  order: 1;
+  margin-right: -20px;
   &__ul {
     display: inline-flex;
     justify-content: space-between;

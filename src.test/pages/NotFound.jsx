@@ -1,12 +1,15 @@
 import Layout from "../components/Layout";
-import DevDump from "../components/DevDump";
-import DevNavbar from "../components/DevNavbar";
+// import DevDump from "../components/DevDump";
+import Container from "../components/Container";
+import Error from "../components/Error";
 
 export default function NotFound() {
   return (
     <Layout>
-      <DevDump />
-      notFound
+      <Container>
+        {/* <DevDump /> */}
+        <Error />
+      </Container>
     </Layout>
   );
 }

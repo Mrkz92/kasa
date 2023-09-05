@@ -1,18 +1,30 @@
 .Collapse {
-  // &--open {
-  // }
-  // &--closed {
-  // }
+  margin-bottom: 20px;
+  overflow: hidden;
   &__title {
     margin: 0;
     padding: 10px;
-    background-color: orange;
+    background-color: #ff6060;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
   }
   &__content {
-    background-color: silver;
-  }
-  &--closed &__content {
-    max-height: 0;
+    background-color: #f6f6f6;
+    color: #ff6060;
+    border-radius: 5px;
+    // padding: 0 12px;
     overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.3s ease-in-out;
+    > ul {
+      padding-left: 0;
+    }
+  }
+  &__padding {
+    padding: 15px 12px 15px 12px;
+  }
+  &--open &__content {
+    max-height: var(--height);
   }
 }

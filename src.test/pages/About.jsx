@@ -9,13 +9,7 @@ export default function About({ children }) {
   return (
     <Layout>
       <Container>
-        <DevDump />
-        <Banner
-          className="Banner--about"
-          image={AboutBannerBg}
-          text=""
-          min-height="223px"
-        />
+        <Banner context="about" image={AboutBannerBg} />
         {children}
         <Collapse title="Fiabilité">
           Les annonces postées sur Kasa garantissent une fiabilité totale. Les

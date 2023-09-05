@@ -7,15 +7,18 @@ DOit contenir les liens vers toutes les pages que l'on veut tester
 
 import { Link } from "react-router-dom";
 import "./DevNavbar.scss";
+import Container from "./Container";
 
 export default function DevNavbar({ links }) {
   return (
-    <nav className="DevNavbar">
-      {links.map((link) => (
-        <Link key={link} to={link}>
-          {link}
-        </Link>
-      ))}
-    </nav>
+    <Container>
+      <nav className="DevNavbar">
+        {links.map((link) => (
+          <Link key={link} to={link}>
+            {link}
+          </Link>
+        ))}
+      </nav>
+    </Container>
   );
 }

@@ -8,7 +8,7 @@ export default function Navbar() {
       <nav className="Navbar">
         <ul className="Navbar__ul">
           <li className="Navbar__li">
-            <Link className="Navbar__a" to="/Kasa/">
+            <Link className="Navbar__a" to="/">
               Accueil
             </Link>
           </li>

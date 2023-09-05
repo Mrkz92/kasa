@@ -1,0 +1,14 @@
+.Rate {
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  &__star {
+    font-size: 18px;
+    &--full {
+      color: #ff6060;
+    }
+    &--empty {
+      color: #e3e3e3;
+    }
+  }
+}
