@@ -1,8 +1,18 @@
 .Gallery {
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
+  border-radius: 10px;
   width: 100%;
   gap: 20px;
   padding: 0;
+  align-items: center;
+  @media screen and (min-width: 800px) {
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  @media screen and (min-width: 1050px) {
+    padding: 50px;
+  }
 }

@@ -8,14 +8,22 @@
   width: 335px;
   overflow: hidden;
   gap: 20px;
+  @media screen and (min-width: 1050px) {
+    width: 340px;
+    height: 340px;
+  }
   figure {
     position: relative;
-    width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
     figcaption {
+      display: flex;
       position: absolute;
       width: 100%;
       bottom: 20px;
-      left: 20px;
       padding: 0 20px;
       margin: -20px;
       background: linear-gradient(
@@ -30,10 +38,14 @@
     justify-content: center;
     align-items: center;
     object-fit: cover;
-    height: 255px;
+    height: 100%;
     border-radius: 10px;
   }
   &__h3 {
+    display: flex;
+    width: 100vw;
+    // padding: 0 20px;
+    align-items: flex-end;
     color: #ffffff;
     font-size: 18px;
     font-weight: 500;

@@ -1,4 +1,4 @@
-// import DevNavbar from "./DevNavbar";
+import DevNavbar from "./DevNavbar";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Layout.scss";
@@ -8,7 +8,7 @@ import "./Layout.scss";
 export default function Layout({ children }) {
   return (
     <div className="Layout">
-      {/* <DevNavbar
+      <DevNavbar
         links={[
           "/",
           "/about/",
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
           "/accomodation/bluurgssss",
           "/bluurgssss",
         ]}
-      /> */}
+      />
       <Header />
       {children}
       <Footer className="Layout__Footer" />

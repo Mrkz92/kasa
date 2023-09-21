@@ -1,0 +1,12 @@
+.Columns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+    & > * {
+      flex-basis: 10%;
+      flex-grow: 1;
+    }
+  }
+}

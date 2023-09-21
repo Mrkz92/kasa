@@ -6,16 +6,17 @@ import DevDump from "../components/DevDump";
 import HomeBannerBg from "../assets/home-bg.png";
 import Container from "../components/Container";
 
-export default function Home() {
+export default function Home({ children }) {
   return (
     <Layout>
       <Container>
         <DevDump valeur={datas} />
         <Banner
-          className="Banner--home"
+          context="home"
           image={HomeBannerBg}
-          text="Chez vous, partout et ailleurs"
+          text="Chez&nbsp;vous, partout&nbsp;et&nbsp;ailleurs"
         />
+        {children}
         <Gallery datas={datas} />
       </Container>
     </Layout>

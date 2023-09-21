@@ -8,7 +8,7 @@ export function Collapse({ title, children, open = false }) {
   const [height, setHeight] = useState("0px");
   useEffect(() => {
     setHeight(contentRef.current.clientHeight + "px");
-  });
+  }, []);
   const [_open, _setOpen] = useState(open);
   const toggleOpen = () => _setOpen((open) => !open);
   return (

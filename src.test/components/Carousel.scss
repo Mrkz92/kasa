@@ -3,18 +3,20 @@
   position: relative;
   overflow: hidden;
   &__slides {
-    // display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     height: 255px;
-    &__picture {
-      max-width: 100vw;
-      height: 100%;
+    @media screen and (min-width: 700px) {
+      height: 415px;
     }
   }
+  &__picture {
+    max-width: 100vw;
+    height: 100%;
+  }
   &__slide {
-    object-fit: cover;
+    object-fit: contain;
     translate: -100% 0;
     transition: all 1s ease-in-out;
     &.is--active {
