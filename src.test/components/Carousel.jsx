@@ -28,27 +28,25 @@ export default function Carousel({ slides }) {
           />
         ))}
       </Stack>
-      <div className="Carousel__control">
-        {length > 1 && (
+      {length > 1 && (
+        <div className="Carousel__control">
           <img
             src={arrowBack}
             alt="precedent"
             onClick={prevSlide}
             className="Carousel__arrow Carousel__arrow--prev"
           />
-        )}
-        <span className="Carousel__number">
-          {current + 1}/{length}
-        </span>
-        {length > 1 && (
+          <span className="Carousel__number">
+            {current + 1}/{length}
+          </span>
           <img
             src={arrowForward}
             alt="suivant"
             onClick={nextSlide}
             className="Carousel__arrow Carousel__arrow--next"
           />
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }
