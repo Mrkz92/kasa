@@ -1,10 +1,12 @@
+import { datas } from "../data/accList";
+import { useParams } from "react-router-dom";
+
+import NotFound from "./NotFound";
+// import DevDump from "../components/DevDump";
 import Layout from "../components/Layout";
-import DevDump from "../components/DevDump";
 import Sheet from "../components/Sheet";
 import Carousel from "../components/Carousel";
 import { Collapse } from "../components/Collapse";
-import { datas } from "../data/accList";
-import { useParams } from "react-router-dom";
 import Container from "../components/Container";
 import Columns from "../components/Columns";
 import Flow from "../components/Flow";
@@ -12,7 +14,12 @@ import Flow from "../components/Flow";
 export default function Accomodation({ children }) {
   const { id } = useParams("id");
   const dataAccomodation = datas.find((data) => data.id === id);
-  // if (!dataAccomodation) return;
+
+  if (!dataAccomodation) {
+    console.log("Redirection vers NotFound");
+    return NotFound();
+  }
+
   return (
     <Layout>
       <Container>

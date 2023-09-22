@@ -9,7 +9,7 @@ export default function Error() {
         <h1 className="Error__h1">404</h1>
         <p className="Error__explain">
           Oups!&nbsp;La&nbsp;page&nbsp;que
-          vous&nbsp;demander&nbsp;n'existe&nbsp;pas.
+          vous&nbsp;demandez&nbsp;n'existe&nbsp;pas.
         </p>
       </Container>
       <Container>

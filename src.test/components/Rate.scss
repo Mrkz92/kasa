@@ -12,4 +12,13 @@
       color: #e3e3e3;
     }
   }
+  @media screen and (min-width: 700px) {
+    justify-content: end;
+    &__star {
+      font-size: 27px;
+      @media screen and (min-width: 1440px) {
+        font-size: 36px;
+      }
+    }
+  }
 }
