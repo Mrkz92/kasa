@@ -1,0 +1,53 @@
+.Carousel {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  &__picture {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  &__slides {
+    height: 255px;
+  }
+  &__slide {
+    max-width: 100%;
+    object-fit: contain;
+    translate: -100% 0;
+    transition: all 1s ease-in-out;
+    &.is--active {
+      translate: 0% 0;
+    }
+    &.is--active ~ & {
+      translate: 100% 0;
+    }
+  }
+  &__control {
+    padding: 0 8px;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__arrow {
+    width: 24px;
+    margin: auto 0;
+  }
+  &__number {
+    display: flex;
+    align-items: end;
+    color: white;
+  }
+  @media screen and (min-width: 700px) {
+    max-width: 1240px;
+    &__slides {
+      height: 415px;
+    }
+    &__arrow {
+      width: 46px;
+    }
+  }
+}
