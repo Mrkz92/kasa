@@ -15,11 +15,14 @@
     margin: 0;
     color: #ffffff;
     cursor: pointer;
-    img {
-      width: 18.42px;
-      height: 18.42px;
-      transition: transform 0.3s ease;
-    }
+  }
+  &__arrow {
+    width: 18.42px;
+    height: 18.42px;
+    transition: transform 0.3s ease;
+  }
+  &--open &__arrow {
+    transform: rotateX(180°);
   }
   &__content {
     background-color: #f6f6f6;
@@ -39,11 +42,6 @@
   &--open &__content {
     max-height: var(--height);
   }
-  // @media screen and (min-width: 700px) {
-  //   &__header {
-  //     height: ;
-  //   }
-  // }
   @media screen and (min-width: 1050px) {
     font-size: 18px;
     &__header {

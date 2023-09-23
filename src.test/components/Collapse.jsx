@@ -14,7 +14,6 @@ export function Collapse({ title, children, open = false }) {
   }, []);
   const [_open, _setOpen] = useState(open);
   const toggleOpen = () => _setOpen((open) => !open);
-  const arrowRotation = _open ? "rotateX(180deg)" : "rotateX(0deg)";
   return (
     <div
       className={`Collapse ${_open ? "Collapse--open" : "Collapse--closed"}`}
@@ -22,12 +21,7 @@ export function Collapse({ title, children, open = false }) {
     >
       <div className="Collapse__header" onClick={toggleOpen}>
         <h3 className="Collapse__title">{title}</h3>
-        <img
-          src={arrowDown}
-          alt="fermé"
-          className="Collapse__arrow"
-          style={{ transform: arrowRotation }}
-        />
+        <img src={arrowDown} alt="collase arrow" className="Collapse__arrow" />
       </div>
       <div className="Collapse__content">
         <div className="Collapse__padding" ref={contentRef}>

@@ -8,15 +8,6 @@ import "./Layout.scss";
 export default function Layout({ children }) {
   return (
     <div className="Layout">
-      <DevNavbar
-        links={[
-          "/",
-          "/about/",
-          "/accomodation/c67ab8a7",
-          "/accomodation/bluurgssss",
-          "/bluurgssss",
-        ]}
-      />
       <Header />
       {children}
       <Footer className="Layout__Footer" />

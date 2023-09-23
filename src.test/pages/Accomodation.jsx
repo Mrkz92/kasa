@@ -2,7 +2,6 @@ import { datas } from "../data/accList";
 import { useParams } from "react-router-dom";
 
 import NotFound from "./NotFound";
-// import DevDump from "../components/DevDump";
 import Layout from "../components/Layout";
 import Sheet from "../components/Sheet";
 import Carousel from "../components/Carousel";
@@ -23,7 +22,6 @@ export default function Accomodation({ children }) {
   return (
     <Layout>
       <Container>
-        {/* <DevDump valeur={dataAccomodation} /> */}
         <main className="Accomodation">
           <Flow>
             <Carousel slides={dataAccomodation.pictures} />
