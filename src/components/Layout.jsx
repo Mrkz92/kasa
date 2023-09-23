@@ -1,4 +1,3 @@
-import DevNavbar from "./DevNavbar";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Layout.scss";
