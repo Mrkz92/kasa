@@ -21,7 +21,7 @@ export function Collapse({ title, children, open = false }) {
     >
       <div className="Collapse__header" onClick={toggleOpen}>
         <h3 className="Collapse__title">{title}</h3>
-        <img src={arrowDown} alt="collase arrow" className="Collapse__arrow" />
+        <img src={arrowDown} alt="collapse arrow" className="Collapse__arrow" />
       </div>
       <div className="Collapse__content">
         <div className="Collapse__padding" ref={contentRef}>

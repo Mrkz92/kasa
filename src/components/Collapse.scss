@@ -4,6 +4,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 142.6%;
+  @media screen and (min-width: 1050px) {
+    font-size: 18px;
+  }
   &__header {
     display: flex;
     align-items: center;
@@ -15,14 +18,19 @@
     margin: 0;
     color: #ffffff;
     cursor: pointer;
+    @media screen and (min-width: 1050px) {
+      height: 52px;
+    }
   }
   &__arrow {
     width: 18.42px;
     height: 18.42px;
+    transform: rotate(0deg);
     transition: transform 0.3s ease;
+    user-select: none;
   }
   &--open &__arrow {
-    transform: rotateX(180°);
+    transform: rotate(-180deg);
   }
   &__content {
     background-color: #f6f6f6;
@@ -32,20 +40,15 @@
     overflow: hidden;
     max-height: 0px;
     transition: max-height 0.3s ease-in-out;
-    > ul {
-      padding-left: 0;
-    }
-  }
-  &__padding {
-    padding: 15px 12px 15px 12px;
   }
   &--open &__content {
     max-height: var(--height);
   }
-  @media screen and (min-width: 1050px) {
-    font-size: 18px;
-    &__header {
-      height: 52px;
+  &__padding {
+    padding: 15px 12px 15px 12px;
+    > ul {
+      padding: 0;
+      margin: 0;
     }
   }
 }

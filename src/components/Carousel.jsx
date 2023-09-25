@@ -34,7 +34,7 @@ export default function Carousel({ slides }) {
             src={arrowBack}
             alt="precedent"
             onClick={prevSlide}
-            className="Carousel__arrow Carousel__arrow--prev"
+            className="Carousel__arrow"
           />
           <span className="Carousel__number">
             {current + 1}/{length}
@@ -43,7 +43,7 @@ export default function Carousel({ slides }) {
             src={arrowForward}
             alt="suivant"
             onClick={nextSlide}
-            className="Carousel__arrow Carousel__arrow--next"
+            className="Carousel__arrow"
           />
         </div>
       )}
