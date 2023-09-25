@@ -20,7 +20,7 @@ export default function Carousel({ slides }) {
         {slides.map((slide, index) => (
           <img
             key={index}
-            className={`Carousel__slide Carousel__picture ${
+            className={`Carousel__slide ${
               index == current ? "is--active" : ""
             }`}
             src={slide}

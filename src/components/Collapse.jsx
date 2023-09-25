@@ -2,8 +2,6 @@ import arrowDown from "../assets/arrow-down.svg";
 import { useEffect, useRef, useState } from "react";
 import "./Collapse.scss";
 
-// import Show from "./Show";
-
 export function Collapse({ title, children, open = false }) {
   const contentRef = useRef(null);
   const [height, setHeight] = useState("0px");
