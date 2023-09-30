@@ -1,12 +1,15 @@
+@import "../styles/utils/variables.scss";
+@import "../styles/utils/mixins.scss";
+
 .Footer {
-  background-color: #000000;
+  background-color: $footer-color;
   padding: 62px 0;
   &__div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-color: $footer-color;
     border: 1px none;
   }
   &__logo {
@@ -14,14 +17,12 @@
   }
   &__txt {
     margin: 0;
-    color: #ffffff;
-    font-family: "Montserrat-Medium", Helvetica;
+    color: $tertiary-color;
     font-size: 12px;
-    font-weight: 500;
     height: 46px;
     letter-spacing: 0;
-    line-height: 17.1px;
     display: flex;
     align-items: flex-end;
+    @include font;
   }
 }

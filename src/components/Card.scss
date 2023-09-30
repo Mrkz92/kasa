@@ -1,8 +1,11 @@
+@import "../styles/utils/variables.scss";
+@import "../styles/utils/mixins.scss";
+
 .Card {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ff5f5f;
+  background-color: $primary-color;
   border-radius: 10px;
   height: 255px;
   width: 335px;
@@ -26,11 +29,6 @@
       bottom: 20px;
       padding: 0 20px;
       margin: -20px;
-      // background: linear-gradient(
-      //   180deg,
-      //   rgba(255, 255, 255, 0) 0%,
-      //   rgba(0, 0, 0, 0.5) 100%
-      // );
     }
   }
   &__img {
@@ -44,13 +42,10 @@
   &__h3 {
     display: flex;
     width: 100vw;
-    // padding: 0 20px;
     align-items: flex-end;
-    color: #ffffff;
+    color: $tertiary-color;
     font-size: 18px;
-    font-weight: 500;
     height: 52px;
-    letter-spacing: 0;
-    line-height: 25.7px;
+    @include font;
   }
 }

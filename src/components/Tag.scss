@@ -1,10 +1,11 @@
+@import "../styles/utils/variables.scss";
+@import "../styles/utils/mixins.scss";
+
 .Tag {
   display: flex;
-  background-color: #ff6060;
-  color: #ffffff;
+  background-color: $primary-color;
+  color: $tertiary-color;
   font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
   border-radius: 5px;
   row-gap: 10px;
   justify-content: center;
@@ -13,7 +14,7 @@
   min-width: 84px;
   max-width: fit-content;
   height: 18px;
-  line-height: 142.6%;
+  @include font;
   @media screen and (min-width: 1050px) {
     min-width: 115px;
     height: 25px;

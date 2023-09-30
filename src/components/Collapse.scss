@@ -1,9 +1,10 @@
+@import "../styles/utils/variables.scss";
+@import "../styles/utils/mixins.scss";
+
 .Collapse {
   overflow: hidden;
   font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 142.6%;
+  @include font;
   @media screen and (min-width: 1050px) {
     font-size: 18px;
   }
@@ -12,11 +13,11 @@
     align-items: center;
     justify-content: space-between;
     height: 30px;
-    background-color: #ff6060;
+    background-color: $primary-color;
     border-radius: 5px;
     padding: 10px;
     margin: 0;
-    color: #ffffff;
+    color: $tertiary-color;
     cursor: pointer;
     @media screen and (min-width: 1050px) {
       height: 52px;
@@ -33,8 +34,8 @@
     transform: rotate(-180deg);
   }
   &__content {
-    background-color: #f6f6f6;
-    color: #ff6060;
+    background-color: $secondary-color;
+    color: $primary-color;
     border-radius: 5px;
     width: 100%;
     overflow: hidden;

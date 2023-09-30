@@ -1,3 +1,5 @@
+@import "../styles/utils/variables.scss";
+
 .Rate {
   display: flex;
   justify-content: start;
@@ -6,10 +8,10 @@
   &__star {
     font-size: 18px;
     &--full {
-      color: #ff6060;
+      color: $primary-color;
     }
     &--empty {
-      color: #e3e3e3;
+      color: $empty-star;
     }
   }
   @media screen and (min-width: 700px) {

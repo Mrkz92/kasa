@@ -1,3 +1,6 @@
+@import "../styles/utils/variables.scss";
+@import "../styles/utils/mixins.scss";
+
 .Banner {
   display: flex;
   width: 100%;
@@ -28,9 +31,9 @@
     height: 100%;
     padding: 0 16px;
     background: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    color: $tertiary-color;
     font-size: 24px;
-    font-weight: 500;
+    @include font;
     @media screen and (min-width: 1050px) {
       justify-content: center;
       font-size: 48px;

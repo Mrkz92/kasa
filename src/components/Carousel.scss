@@ -1,3 +1,5 @@
+@import "../styles/utils/variables.scss";
+
 .Carousel {
   border-radius: 10px;
   position: relative;
@@ -46,6 +48,6 @@
   &__number {
     display: flex;
     align-items: end;
-    color: white;
+    color: $tertiary-color;
   }
 }
